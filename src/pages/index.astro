@@ -1,13 +1,42 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro
+import Layout from "../layouts/Layout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro"; // ★コンポーネントを読み込む
 ---
 
 <Layout title="My Homepage">
-	<h1 class="text-4xl font-bold mb-4">Hello Astrofy!</h1>
-	<p>レイアウトファイルの書き換えに成功しました。</p>
-	<button class="btn btn-primary mt-4">ボタン</button>
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">こんにちは 👋</div>
+    <div class="text-5xl font-bold">I'm Your Name</div>
+    <div class="text-3xl py-3 font-bold">Software Engineer / Designer</div>
+    <div class="py-2">
+      <text class="text-lg">
+        ここには自己紹介文が入ります。AstroとTailwind CSSを使ってポートフォリオを作成中です。
+      </text>
+    </div>
+    <div class="mt-8">
+      <a class="btn" href="#" target="_blank"> Twitter</a>
+      <a href="#" target="_blank" class="btn btn-outline ml-5"> GitHub</a>
+    </div>
+  </div>
+
+  <div class="divider my-0"></div> <div class="text-3xl w-full font-bold mb-5 mt-10">Last Projects</div>
+
+  <HorizontalCard
+    title="ポートフォリオサイト"
+    img="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" 
+    desc="AstroとTailwind CSSを使って作成した、自分だけのポートフォリオサイトです。高速でカスタマイズ可能です。"
+    url="#"
+    badge="NEW"
+    tags={["Astro", "Tailwind", "DaisyUI"]}
+  />
+
+  <HorizontalCard
+    title="サービス開発デモ"
+    img="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+    desc="Reactを使ったWebサービスのデモ開発です。ログイン機能とデータベース連携を行いました。"
+    url="#"
+    tags={["React", "Firebase"]}
+  />
+
 </Layout>
