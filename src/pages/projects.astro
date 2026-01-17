@@ -1,0 +1,35 @@
+---
+// src/pages/projects.astro
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+
+// プロジェクトを新しい順に取得
+const projects = (await getCollection("projects")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout title="Projects | My Portfolio">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Projects</div>
+  </div>
+
+  {
+    projects.length === 0 ? (
+      <div class="alert alert-info">まだプロジェクトがありません。</div>
+    ) : (
+      projects.map((project) => (
+        <HorizontalCard
+          title={project.data.title}
+          img={project.data.heroImage}
+          desc={project.data.description}
+          url={project.data.url || "#"} 
+          target="_blank"
+          badge={project.data.badge}
+          tags={project.data.tags}
+        />
+      ))
+    )
+  }
+</Layout>
