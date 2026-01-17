@@ -1,0 +1,38 @@
+---
+// src/pages/blog/index.astro
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import HorizontalCard from "../../components/HorizontalCard.astro";
+
+// 記事を全部取得して、日付の新しい順に並び替える
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout title="Blog | My Portfolio">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Blog</div>
+  </div>
+
+  {
+    posts.length === 0 ? (
+      <div class="bg-base-200 border-l-4 border-warning p-4 w-full">
+        <p class="font-bold">記事がありません</p>
+        <p>src/content/blog/ に .md ファイルを追加してください。</p>
+      </div>
+    ) : (
+      posts.map((post) => (
+        <HorizontalCard
+          title={post.data.title}
+          img={post.data.heroImage}
+          desc={post.data.description}
+          url={`/blog/${post.slug}/`} 
+          target="_self"
+          badge={post.data.tags && post.data.tags[0]}
+          tags={post.data.tags}
+        />
+      ))
+    )
+  }
+</Layout>
