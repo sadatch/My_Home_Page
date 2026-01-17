@@ -1,0 +1,74 @@
+---
+// src/pages/cv.astro
+import Layout from "../layouts/Layout.astro";
+import TimeLine from "../components/cv/TimeLine.astro";
+---
+
+<Layout title="CV | My Portfolio">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Profile</div>
+  </div>
+
+  <div class="mb-10 text-justify">
+    ここにはあなたのプロフィール概要を書きます。これまでの経験や、どのようなエンジニア/デザイナーを目指しているかなど、自由に記述してください。
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLine
+      title="情報工学専攻 卒業"
+      subtitle="2018年 〜 2022年 | 〇〇大学"
+    >
+      大学時代の研究内容や、専攻していた分野についてここに書きます。サークル活動やボランティア経験なども良いでしょう。
+    </TimeLine>
+    <TimeLine
+      title="高校 卒業"
+      subtitle="2015年 〜 2018年 | 〇〇高校"
+    >
+      高校時代の部活動や特記事項があればここに書きます。
+    </TimeLine>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Experience</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLine
+      title="Webエンジニア"
+      subtitle="2022年 〜 現在 | 株式会社〇〇"
+    >
+      現在の職務内容を書きます。
+      <ul class="list-disc ml-5 mt-2">
+         <li>Reactを使ったフロントエンド開発</li>
+         <li>Astroを使ったサイト高速化</li>
+      </ul>
+    </TimeLine>
+    <TimeLine
+      title="インターンシップ"
+      subtitle="2021年 | 〇〇株式会社"
+    >
+      学生時代のインターン経験などを記述します。
+    </TimeLine>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
+  </div>
+
+  <ul class="list-disc md:columns-5 columns-2 mx-6">
+    <li>Japanese (Native)</li>
+    <li>English (A2)</li>
+    <li>JavaScript</li>
+    <li>TypeScript</li>
+    <li>Astro</li>
+    <li>React</li>
+    <li>Tailwind CSS</li>
+    <li>Git</li>
+    <li>SQL</li>
+    <li>Figma</li>
+  </ul>
+</Layout>
