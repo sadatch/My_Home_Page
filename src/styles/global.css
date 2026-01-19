@@ -1,3 +1,8 @@
 @import "tailwindcss";
 @plugin "daisyui";
 @plugin "@tailwindcss/typography"; /* ← これを追加！ */
+
+/* 全体に適用 */
+:root {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+}
